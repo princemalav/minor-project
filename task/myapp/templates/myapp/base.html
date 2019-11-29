@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div  >
+    <form method="POST" action='{% url 'myapp:home' %}'>
+    {% csrf_token %}
+    <h1>AHP Based Modeling For Forest Fire in Hilly Terrain</h1>
+    Email : <input type="text" name="email" placeholder="Enter your mail"><br>
+    Name : <input type="text" name="name" placeholder="Enter your name"><br>
+    Designation : <input type="text" name="dgn" placeholder="Enter your Designation"><br>
+    1. Forest Density: Assign a Weight <br>
+    <select class="" name="forest_density">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Forest Density type
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Low Density Forest
+      </div>
+      <div class="col">
+        <input type="checkbox" name="low_denisty_forest" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="low_denisty_forest" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="low_denisty_forest" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Moderate Density Forest
+      </div>
+      <div class="col">
+        <input type="checkbox" name="Moderate_Density_Forest" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="Moderate_Density_Forest" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="Moderate_Density_Forest" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        High Density Forest
+      </div>
+      <div class="col">
+        <input type="checkbox" name="High_Density_Forest" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="High_Density_Forest" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="High_Density_Forest" value="Low Fire Sensitivity">
+      </div>
+    </div>
+
+    2. Slope: Assign a Weight <br>
+    <select class="" name="slope">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Slope Ranges (%)
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        0-5%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_0_5%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_0_5%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_0_5%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        5-10%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_5_10%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_5_10%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_5_10%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        10-15%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_10_15%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_10_15%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_10_15%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        15-20%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_15_20%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_15_20%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_15_20%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        20-25%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_20_25%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_20_25%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_20_25%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        above 25%
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_above_25%" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_above_25%" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="slop_above_25%" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    3. Aspect: Assign a Weight <br>
+    <select class="" name="aspect">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Aspect Directions
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        North
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        North East
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_east" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_east" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_east" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        East
+      </div>
+      <div class="col">
+        <input type="checkbox" name="east" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="east" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="east" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        South East
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_east" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_east" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_east" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        South
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        South West
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_west" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_west" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="south_west" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        West
+      </div>
+      <div class="col">
+        <input type="checkbox" name="west" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="west" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="west" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        North West
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_west" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_west" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="north_west" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    4. Elevation: Assign a Weight <br>
+    <select class="" name="elevation">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Elevation Ranges (Meter)
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        0-500 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e0-500" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e0-500" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e0-500" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        500-800 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e500-800" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e500-800" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e500-800" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        800-1100 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e800-1100" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e800-1100" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e800-1100" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1100-1400 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1100-1400" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1100-1400" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1100-1400" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1400-1700 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1400-1700" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1400-1700" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1400-1700" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1700-2000 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1700_2000" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1700_2000" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e1700_2000" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        2000-2300 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e2000_2300" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e2000_2300" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e2000_2300" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Above 2300 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e_above2300" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e_above2300" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="e_above2300" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    5. Distance From Road: Assign a Weight <br>
+    <select class="" name="distance">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Distances From Road(Meter)
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        0-100 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_0_100" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_0_100" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_0_100" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        100-200 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_100_200" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_100_200" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_100_200" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        200-300 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_200_300" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_200_300" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_200_300" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        300-400 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_300_400" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_300_400" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_300_400" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        400-500 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_400_500" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_400_500" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="d_400_500" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    6. Settlement: Assign a Weight <br>
+    <select class="" name="settlement">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Distance From Settlement (Meter)
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        0-1000 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_0_1000" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_0_1000" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_0_1000" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1000-2000 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_1000_2000" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_1000_2000" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_1000_2000" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        2000-3000 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_2000_3000" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_2000_3000" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_2000_3000" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        3000-4000 m.
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_3000_4000" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_3000_4000" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="s_3000_4000" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    7. Biomass: Assign a Weight <br>
+    <select class="" name="biomass">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    Select Sensitivity for Biomass
+    <div>
+      <div class="row">
+        <div class="col">
+        </div>
+          <div class="col">
+              High Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Moderate Fire
+              Sensitivity
+          </div>
+          <div class="col">
+              Low Fire
+              Sensitivity
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Above Ground Biomass
+      </div>
+      <div class="col">
+        <input type="checkbox" name="agbio" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="agbio" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="agbio" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      Below Ground Biomass
+      </div>
+      <div class="col">
+        <input type="checkbox" name="bgbio" value="High Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="bgbio" value="Moderate Fire Sensitivity">
+      </div>
+      <div class="col">
+        <input type="checkbox" name="bgbio" value="Low Fire Sensitivity">
+      </div>
+    </div>
+    8. Wind: Assign a Weight <br>
+    <select class="" name="wind">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    9. Temperature: Assign a Weight <br>
+    <select class="" name="temprature">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    10. Rainfall: Assign a Weight <br>
+    <select class="" name="rainfall">
+      <option selected>Choose</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select><br>
+    <br><br><button type="submit" name="button">Submit</button>
+    </form>
+  </div>
+  </body>
+</html>
